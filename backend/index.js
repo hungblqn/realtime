@@ -17,6 +17,7 @@ const corsOptions = {
     methods: ['GET', 'POST'],
     transports: ['websocket', 'polling'],  // Cho phép websocket và polling
     credentials: true,  // Cho phép gửi cookies, nếu cần
+    allowedHeaders: ['Content-Type'],
 };
 
 // Cấu hình CORS cho Express
