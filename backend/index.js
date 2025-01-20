@@ -11,16 +11,23 @@ import { v4 as uuidv4 } from 'uuid';
 const app = express();
 const server = http.createServer(app);
 
-// Cấu hình Socket.IO
+// Cấu hình CORS cho cả Express và Socket.IO
+const corsOptions = {
+    origin: [FEAddress],  // FEAddress là địa chỉ frontend
+    methods: ['GET', 'POST'],
+    credentials: true,  // Cho phép gửi cookies, nếu cần
+};
+
+// Cấu hình CORS cho Express
+app.use(cors(corsOptions));  // Đảm bảo rằng Express chấp nhận yêu cầu từ frontend
+
+// Cấu hình Socket.IO với CORS
 const io = new Server(server, {
-    cors: {
-        origin: [FEAddress],
-        methods: ['GET', 'POST'],
-    },
+    cors: corsOptions,  // Sử dụng cùng một cấu hình CORS cho Socket.IO
 });
 
+// Middleware
 app.use(bodyParser.json({ limit: '1mb' }));
-app.use(cors({ origin: [FEAddress], methods: ['GET', 'POST'], credentials: true }));
 app.use(cookieParser());
 
 // Kết nối MongoDB
