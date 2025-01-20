@@ -13,12 +13,13 @@ const server = http.createServer(app);
 
 // Cấu hình CORS cho cả Express và Socket.IO
 const corsOptions = {
-    origin: `${FEAddress}`,  // Địa chỉ frontend của bạn
+    origin: '*',  // Cho phép tất cả các địa chỉ
     methods: ['GET', 'POST'],
     transports: ['websocket', 'polling'],  // Cho phép websocket và polling
     credentials: true,  // Cho phép gửi cookies, nếu cần
     allowedHeaders: ['Content-Type'],
 };
+
 
 // Cấu hình CORS cho Express
 app.use(cors(corsOptions));  // Đảm bảo rằng Express chấp nhận yêu cầu từ frontend
