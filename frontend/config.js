@@ -1,2 +1,2 @@
 // Địa chỉ backend
-export const ServerAddress = 'http://localhost:8080';
+export const ServerAddress = 'https://realtime-backend-seven.vercel.app';
