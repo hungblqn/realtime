@@ -2,8 +2,8 @@
 export const PORT = 8080;
 //
 //export const FEAddress = 'http://localhost'
-export const BEAddress = 'http://localhost:8080'
-export const FEAddress = 'http://localhost'
+export const BEAddress = 'https://realtime-backend-seven.vercel.app'
+export const FEAddress = 'https://realtime-beige.vercel.app'
 
 export const jwtSecretKey = 'vQYUZa2HXqj4Nf5r8LyhTSvBEGz6puJW'
 
