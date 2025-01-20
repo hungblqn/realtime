@@ -13,9 +13,9 @@ const server = http.createServer(app);
 
 // Cấu hình CORS cho cả Express và Socket.IO
 const corsOptions = {
-    origin: FEAddress,  // Địa chỉ frontend của bạn
+    origin: "http://localhost:8100",  // Địa chỉ frontend của bạn
     methods: ['GET', 'POST'],
-    transports: ['websocket', 'polling'],
+    transports: ['websocket', 'polling'],  // Cho phép websocket và polling
     credentials: true,  // Cho phép gửi cookies, nếu cần
 };
 
@@ -25,6 +25,7 @@ app.use(cors(corsOptions));  // Đảm bảo rằng Express chấp nhận yêu c
 // Cấu hình Socket.IO với CORS
 const io = new Server(server, {
     cors: corsOptions,  // Sử dụng cùng một cấu hình CORS cho Socket.IO
+    allowEIO3: true      // Cho phép giao thức EIO3 (vẫn hỗ trợ các client sử dụng Socket.IO v3)
 });
 
 // Middleware
