@@ -1,6 +1,6 @@
 import React, { useEffect, useRef, useState } from 'react';
 import { io } from 'socket.io-client';
-import { BEAddress } from '../../../backend/config';
+import { BEAddress } from '../../config';
 
 const socket = io(BEAddress);
 
