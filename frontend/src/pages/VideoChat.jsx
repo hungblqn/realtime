@@ -1,8 +1,8 @@
 import React, { useEffect, useRef, useState } from 'react';
 import { io } from 'socket.io-client';
-import { BEAddress } from '../../config';
+import { ServerAddress } from '../../config';
 
-const socket = io(BEAddress);
+const socket = io(ServerAddress);
 
 const VideoChat = () => {
     const [roomId, setRoomId] = useState(null);
