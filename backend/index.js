@@ -13,7 +13,7 @@ const server = http.createServer(app);
 
 // Cấu hình CORS cho cả Express và Socket.IO
 const corsOptions = {
-    origin: "http://localhost:8100",  // Địa chỉ frontend của bạn
+    origin: `${FEAddress}`,  // Địa chỉ frontend của bạn
     methods: ['GET', 'POST'],
     transports: ['websocket', 'polling'],  // Cho phép websocket và polling
     credentials: true,  // Cho phép gửi cookies, nếu cần
